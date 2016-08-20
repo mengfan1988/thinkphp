@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">商品添加</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>  
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" action="{:U('Admin/Phone/insert')}" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>手机标语</label>
+                                    <input name="phoneName" type="text" class="form-control" placeholder="请输入手机名字">
+                                </div>
+                                <div class="form-group">
+                                    <label>价格</label>
+                                    <input name="price" type="text" class="form-control" placeholder="单位是元">
+                                </div>
+                                <div class="form-group">
+                                    <label>原价</label>
+                                    <input name="preprice" type="text" class="form-control" placeholder="默认是无">
+                                </div>
+                                <div class="form-group">
+                                    <label>屏幕尺寸</label>
+                                    <input name="screenSize" type="text" class="form-control" placeholder="单位是英寸">
+                                </div>
+                                
+                                
+                                
+                                 
+                                 
+                                <div class="form-group">
+                                    <label>系列</label>
+                                    <select class="form-control" name="series">
+
+                                    <foreach name="serieszhi" item="vo" >    
+                                         <!-- <label class="radio-inline"> -->
+                                        <option value="{$vo['id']}" >{$vo['name']}</option>
+
+                                            <!-- <input type="radio" name="series" id="optionsRadiosInline1" value="{$vo['id']}" checked="">{$vo['name']} -->
+                                        <!-- </label> -->
+                                    </foreach>
+                                     </select>
+                                    
+                                </div>
+                               <div class="form-group">
+                                    <label>机型</label>
+                                    <select class="form-control" name="type">
+                                    <foreach name="typezhi" item="vo" > 
+                                        <option value="{$vo['id']}" >{$vo['name']}</option>
+
+                                         <!-- <label class="radio-inline" style="margin-left:0px ;width:70px">
+                                            <input type="radio" name="type" id="optionsRadiosInline1" value="{$vo['id']}" checked="">{$vo['name']}
+                                        </label> -->
+                                    </foreach>
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>网络</label>
+                                    <select class="form-control" name="network">
+                                    <foreach name="netzhi" item="vo" >
+                                        <option value="{$vo['id']}" >{$vo['name']}</option>
+
+                                         <!-- <label class="radio-inline" style="margin-left:0px ;width:100px">
+                                            <input type="radio" name="network" id="optionsRadiosInline1" value="{$vo['id']}" checked="">{$vo['name']} 
+                                        </label> -->
+                                    </foreach>
+                                   </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>销售状态</label><br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="optionsRadiosInline1" value="0" checked="">普通
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="optionsRadiosInline1" value="1" checked="">新品
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="optionsRadiosInline1" value="2" checked="">爆款
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="optionsRadiosInline1" value="3" checked="">促销
+                                    </label>
+                                     
+
+                                </div>
+                                <div class="form-group">
+                                    <label>颜色</label><br>
+                                    <foreach name="colorzhi" item="vo" > 
+                                    <div class="checkbox-inline" style="margin-left:0px ;width:70px">
+                                        <label>
+                                            <input name="phoneColor[]" type="checkbox" value="{$vo['id']}">{$vo['name']}
+                                        </label>
+                                    </div>
+                                    </foreach>
+                                </div>
+                                <div class="form-group">
+                                    <label>手机主图</label>
+                                    <input type="file" name="pic">
+                                </div>
+                                <div class="form-group">
+                                    <label>验证码</label>
+                                    <input name="vcode" type="text" class="form-control" >
+                                    <img src="{:U('Admin/Public/createVcode')}" onclick="this.src=this.src+'?a'">
+                                </div>
+                                
+                                <button  class="btn btn-primary">添加</button>
+                                <button type="reset" class="btn btn-default">重置</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                       
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>    
+    </body>
+</html>
